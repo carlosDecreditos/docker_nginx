@@ -42,7 +42,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Larabel de mierda
+          Laravel de mierda
         </a>
         <div>
           {loading ? <p>CONEXION CON BACKEND EXITOSA</p>:<p>NO SE CONECTO AL BACK</p>}
