@@ -10,7 +10,7 @@ COPY . /app
 
 RUN npm i -g serve
 
-RUN npm run-script build
+RUN npm run build
 
 EXPOSE 3000
 
