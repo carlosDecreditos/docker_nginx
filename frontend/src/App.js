@@ -42,7 +42,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Charly
+          Larabel de mierda
         </a>
         <div>
           {loading ? <p>CONEXION CON BACKEND EXITOSA</p>:<p>NO SE CONECTO AL BACK</p>}
