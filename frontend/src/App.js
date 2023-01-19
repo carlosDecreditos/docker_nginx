@@ -1,7 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useEffect, useState } from "react";
 
 function App() {
+  const [estado, setEstado] = useState([])
+  const [loading, setLoading] = useState(false)
+  
+     const getGamesAll = async () => {
+       const options = {
+         method: "GET"
+       };
+       
+       // Petición HTTP
+      //  fetch(process.env.REACT_APP_REST+"/games", options)
+       fetch("/api/games", options)
+         .then(response => response.json())
+         .then(data => {
+           setEstado(data)
+           setLoading(true)
+         });
+     };
+ 
+ 
+     useEffect(() => {
+       getGamesAll()
+     }, [])
+ 
+ 
+     console.log(estado)
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,8 +42,11 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Charly
         </a>
+        <div>
+          {loading ? <p>CONEXION CON BACKEND EXITOSA</p>:<p>NO SE CONECTO AL BACK</p>}
+        </div>
       </header>
     </div>
   );

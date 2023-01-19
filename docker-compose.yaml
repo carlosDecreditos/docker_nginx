@@ -1,0 +1,32 @@
+version: '3.9'
+services:
+  reactfront:
+    container_name: reactfront
+    build: ./frontend
+    expose:
+      - 3000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+  expressback:
+    container_name: expressback
+    build: ./backend
+    expose:
+      - 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+  nginx:
+    build: ./nginx
+    expose:
+      - 80
+    ports:
+      - "80:80"
+    links:
+      - reactfront
+      - expressback
+    restart: always
